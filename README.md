@@ -38,3 +38,15 @@ At school, we learn the `C` and `OCaml` programming languages. So my language wi
 The language will be wholly interpreted, but there will be an option to compile: all the normally printed out strings will be stored, put in a dummy `C` program, and then compiled on the host machine. This is a trick, I know, but if it works, that's what counts.
 
 I will try to implement the basic functionalities with a good complexity, be it in time or in space.
+
+## Contributing
+
+As this project is a personal one, I do not wish for people to send pull requests. BUT if anyone has any advice, or feature recommendation, I am open to it.
+
+This is a project for me to learn, so if anybody knows a lot, he can always help me or give hints, pieces of advice... I also have security in mind, but I am not a professional. As such, I am open to security advice too.
+
+## Sponsorship
+
+I activated the sponsorship, but I do not wait for anyone to really do it. Furthermore, I even _discourage_ anyone to send me money, as this project may never come to an end, and I could very well delete it in the near future.
+
+Sponsor me _only_ if you have the pockets a bit too heavy, and think this project could help alleviate your pain.
