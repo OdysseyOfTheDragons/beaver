@@ -8,6 +8,7 @@
 /** Whether the program is compiled or not. */
 bool IS_COMPILED = false;
 
+/** Prints the usage of the CLI in case of error. */
 void print_usage() {
 	fprintf(stderr,
 			"Usage:\n" "\tbeaver\tLaunch the REPL\n"

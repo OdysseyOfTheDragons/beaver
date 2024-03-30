@@ -1,6 +1,6 @@
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
-A brand-\/new programming language to manipulate polynomials.\hypertarget{index_autotoc_md1}{}\doxysection{Origin}\label{index_autotoc_md1}
+My own mathematical OOP programming language.\hypertarget{index_autotoc_md1}{}\doxysection{Origin}\label{index_autotoc_md1}
 It\textquotesingle{}s been years I dream about building my own programming language. But years passed, and nothing happened... until last year. For homework in my school, we had to do a simple {\ttfamily C} program to manipulate polynomials.
 
 Interested, I dug a little bit further and built a working REPL from scratch, in order for the teacher to use the functionalities without looking at the code (well, he still had, of course, but he could at least play a little bit with it).
@@ -33,79 +33,6 @@ Maybe some explanations are needed, no?
 
 At school, we learn the {\ttfamily C} and {\ttfamily OCaml} programming languages. So my language will be built using ONLY these two languages. I think most of the code will be pure {\ttfamily C}, but I may want to use {\ttfamily OCaml} sometimes (even for a single function that would take less than 10 lines in {\ttfamily C}, and which would take 20 lines in {\ttfamily OCaml} with the interfacing to {\ttfamily C}. But hey, am I dumb or am I not?)
 
-The language will be wholly interpreted, but there will be an option to compile\+: all the normally printed out strings will be stored, put in a dummy {\ttfamily C} program, and then compiled on the host machine. This is a trick, I know, but if it works, that\textquotesingle{}s what counts.\hypertarget{index_autotoc_md3}{}\doxysection{Inspirations}\label{index_autotoc_md3}
-I always lose sight of the websites I do find interesting. So, in order for this project not to lose its inspirations, I will list the websites below.
+The language will be wholly interpreted, but there will be an option to compile\+: all the normally printed out strings will be stored, put in a dummy {\ttfamily C} program, and then compiled on the host machine. This is a trick, I know, but if it works, that\textquotesingle{}s what counts.
 
-
-\begin{DoxyItemize}
-\item \href{https://blog.subnetzero.io/post/building-language-vm-part-00/}{\texttt{ https\+://blog.\+subnetzero.\+io/post/building-\/language-\/vm-\/part-\/00/}}
-\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysection{Steps}\label{index_autotoc_md4}
-The following steps I intend to take / took / am taking (choose three).
-
-Joke apart, this will be a good starting point to understand what I am doing, and for me to copy myself later, if I ever need to.\hypertarget{index_autotoc_md5}{}\doxysubsection{Step 0}\label{index_autotoc_md5}
-Initializing the project, searching for tutorials, losing time in the search of a build system...\hypertarget{index_autotoc_md6}{}\doxysubsection{Step 1}\label{index_autotoc_md6}
-This is not an important part of the project, I think, but this is code I will be able to reuse later. This part is the {\itshape utils}. Well, not exactly. What I mean, is more something like a library of modules, that will be useful later. So a string module, as well as lists, vectors, stacks, queues, hash maps...
-
-And because I think what I found may come in handy later, here are some ideas to implement important features in {\ttfamily C}\+: polymorphism and types.
-
-What I found is that one can use a {\ttfamily union} struct to hold multiple types in a single struct. One can think of it as a crossroad, where you choose the path you want, but as the saying goes, \char`\"{}all roads lead to Rome\char`\"{}.
-
-Example\+: 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{    \textcolor{keyword}{enum} \{ INT\_TYPE, DOUBLE\_TYPE, BOOL\_TYPE, STRING\_TYPE \} type;}
-\DoxyCodeLine{    \textcolor{keyword}{union }\{}
-\DoxyCodeLine{        IntType* intType;}
-\DoxyCodeLine{        DoubleType* doubleType;}
-\DoxyCodeLine{        BoolType* boolType;}
-\DoxyCodeLine{        StringType* stringType;}
-\DoxyCodeLine{    \} data;}
-\DoxyCodeLine{\} ValueType;}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{void} access(ValueType data) \{}
-\DoxyCodeLine{    \textcolor{keywordflow}{switch} (data.type) \{}
-\DoxyCodeLine{        \textcolor{keywordflow}{case} INT\_TYPE:}
-\DoxyCodeLine{            \textcolor{comment}{// data.data.intType;}}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keywordflow}{case} STRING\_TYPE:}
-\DoxyCodeLine{            \textcolor{comment}{// data.data.stringType;}}
-\DoxyCodeLine{}
-\DoxyCodeLine{        ...}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-
-
-And this would enable one to get what one wants. That way, and if every type in the union is a pointer, then the space used isn\textquotesingle{}t much (an {\ttfamily enum} and a pointer), and an array could hold multiple types.
-
-The function can also return a new type to handle errors\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{enum} \{ ERROR\_EMPTY\_TREE, ERROR\_DIV\_0 \} error;}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} status; \textcolor{comment}{// success or failure?}}
-\DoxyCodeLine{    \textcolor{keywordtype}{int} errorCode; \textcolor{comment}{// an `error`}}
-\DoxyCodeLine{    ValueType ret; \textcolor{comment}{// returned value}}
-\DoxyCodeLine{\} ReturnType;}
-
-\end{DoxyCode}
-
-
-And I can also create a {\ttfamily String\+Type} that holds more than just a {\ttfamily char$\ast$} to be faster in some cases\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{    ArrayType* content;}
-\DoxyCodeLine{    \textcolor{keywordtype}{int} hash;}
-\DoxyCodeLine{\} StringType;}
-
-\end{DoxyCode}
-
-
-This type has some advantages\+: the {\ttfamily content} of the string is {\ttfamily vector}, so to add or remove an element is $O(1)$ (constant time). Then the comparison for two strings can first start with the length (constant time access thanks to the use of the {\ttfamily vector})\+: different lengths mean different strings, then the hash\+: different hashes means different strings (or should I only compare the hashes?), and if everything is the same, then compare the strings.
-
-I will try to implement options with good complexity, be it in time or space. 
+I will try to implement the basic functionalities with a good complexity, be it in time or in space. 

@@ -1,6 +1,6 @@
 ### Project ###
 build
-docs
+Docs
 .hidden
 compile_commands.json
 *~

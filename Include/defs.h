@@ -1,9 +1,6 @@
 /**
  * @file
  * @brief Commonly imported definitions.
- *
- * @author Alexandre Conseil
- * @date 2024
  */
 
 #ifndef _DEFS

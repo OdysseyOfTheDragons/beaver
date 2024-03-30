@@ -6,22 +6,96 @@ Wrapper to the allocation functions.
 
 
 {\ttfamily \#include \char`\"{}Include/malloc.\+h\char`\"{}}\newline
-Include dependency graph for malloc.\+c\+:\nopagebreak
+Include dependency graph for malloc.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{d1/de1/malloc_8c__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{malloc_8c_a9a730e84612c38a637f04bf983e4f0b4}{print\+\_\+error}} ()
+\item 
+void $\ast$ \mbox{\hyperlink{malloc_8c_a9a7684ec7a101845e6c146df4c3ddd67}{Malloc}} (size\+\_\+t size)
+\item 
+void $\ast$ \mbox{\hyperlink{malloc_8c_a9aba735939042a2a4a6cd57e9df45dad}{Calloc}} (size\+\_\+t length, size\+\_\+t size, void $\ast$element)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Wrapper to the allocation functions. 
 
-\begin{DoxyAuthor}{Author}
-Alexandre Conseil @2024 
-\end{DoxyAuthor}
 
 
 Definition in file \mbox{\hyperlink{malloc_8c_source}{malloc.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{malloc_8c_a9aba735939042a2a4a6cd57e9df45dad}\label{malloc_8c_a9aba735939042a2a4a6cd57e9df45dad}} 
+\index{malloc.c@{malloc.c}!Calloc@{Calloc}}
+\index{Calloc@{Calloc}!malloc.c@{malloc.c}}
+\doxysubsubsection{\texorpdfstring{Calloc()}{Calloc()}}
+{\footnotesize\ttfamily void $\ast$ Calloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{length,  }\item[{size\+\_\+t}]{size,  }\item[{void $\ast$}]{element }\end{DoxyParamCaption})}
+
+Allocates the memory with the default value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & the number of elements to allocate \\
+\hline
+{\em size} & the size of one object \\
+\hline
+{\em element} & the default element, which must have a copy method \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the memory 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em no} & more memory available \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{malloc_8c_source_l00022}{22}} of file \mbox{\hyperlink{malloc_8c_source}{malloc.\+c}}.
+
+\mbox{\Hypertarget{malloc_8c_a9a7684ec7a101845e6c146df4c3ddd67}\label{malloc_8c_a9a7684ec7a101845e6c146df4c3ddd67}} 
+\index{malloc.c@{malloc.c}!Malloc@{Malloc}}
+\index{Malloc@{Malloc}!malloc.c@{malloc.c}}
+\doxysubsubsection{\texorpdfstring{Malloc()}{Malloc()}}
+{\footnotesize\ttfamily void $\ast$ Malloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Allocates the given size of memory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of memory to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the memory 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em no} & more memory available \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{malloc_8c_source_l00014}{14}} of file \mbox{\hyperlink{malloc_8c_source}{malloc.\+c}}.
+
+\mbox{\Hypertarget{malloc_8c_a9a730e84612c38a637f04bf983e4f0b4}\label{malloc_8c_a9a730e84612c38a637f04bf983e4f0b4}} 
+\index{malloc.c@{malloc.c}!print\_error@{print\_error}}
+\index{print\_error@{print\_error}!malloc.c@{malloc.c}}
+\doxysubsubsection{\texorpdfstring{print\_error()}{print\_error()}}
+{\footnotesize\ttfamily void print\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Message to show in case there is no more space on the computer. 
+
+Definition at line \mbox{\hyperlink{malloc_8c_source_l00009}{9}} of file \mbox{\hyperlink{malloc_8c_source}{malloc.\+c}}.
 

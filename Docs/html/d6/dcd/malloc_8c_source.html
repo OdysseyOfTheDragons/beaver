@@ -98,7 +98,32 @@ $(document).ready(function(){initNavTree('d6/dcd/malloc_8c_source.html','../../'
 </div><!--header-->
 <div class="contents">
 <a href="../../d6/dcd/malloc_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d4c/malloc_8h.html">Include/malloc.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d4c/malloc_8h.html">Include/malloc.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../d6/dcd/malloc_8c.html#a9a730e84612c38a637f04bf983e4f0b4">    9</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/dcd/malloc_8c.html#a9a730e84612c38a637f04bf983e4f0b4">print_error</a>() {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    fprintf(stdout, <span class="stringliteral">&quot;Unexpected error: no more space available.\n&quot;</span>);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    exit(EXIT_FAILURE);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>}</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d0/d4c/malloc_8h.html#a9a7684ec7a101845e6c146df4c3ddd67">   14</a></span><span class="keywordtype">void</span>* <a class="code hl_function" href="../../d6/dcd/malloc_8c.html#a9a7684ec7a101845e6c146df4c3ddd67">Malloc</a>(<span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">if</span> (size &lt; 0) { <span class="keywordflow">return</span> NULL; }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span>* space = (<span class="keywordtype">void</span>*)malloc(size);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> (space == NULL) { <a class="code hl_function" href="../../d6/dcd/malloc_8c.html#a9a730e84612c38a637f04bf983e4f0b4">print_error</a>(); }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">return</span> space;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d0/d4c/malloc_8h.html#a9aba735939042a2a4a6cd57e9df45dad">   22</a></span><span class="keywordtype">void</span>* <a class="code hl_function" href="../../d6/dcd/malloc_8c.html#a9aba735939042a2a4a6cd57e9df45dad">Calloc</a>(<span class="keywordtype">size_t</span> length, <span class="keywordtype">size_t</span> size, <span class="keywordtype">void</span>* element) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// TODO: element must implement a copy method</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span> (length &lt; 0 || size &lt; 0) { <span class="keywordflow">return</span> NULL; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span>* space = (<span class="keywordtype">void</span>*)malloc(length * size);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">if</span> (space == NULL) { <a class="code hl_function" href="../../d6/dcd/malloc_8c.html#a9a730e84612c38a637f04bf983e4f0b4">print_error</a>(); }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">return</span> space;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
+<div class="ttc" id="amalloc_8c_html_a9a730e84612c38a637f04bf983e4f0b4"><div class="ttname"><a href="../../d6/dcd/malloc_8c.html#a9a730e84612c38a637f04bf983e4f0b4">print_error</a></div><div class="ttdeci">void print_error()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dcd/malloc_8c_source.html#l00009">malloc.c:9</a></div></div>
+<div class="ttc" id="amalloc_8c_html_a9a7684ec7a101845e6c146df4c3ddd67"><div class="ttname"><a href="../../d6/dcd/malloc_8c.html#a9a7684ec7a101845e6c146df4c3ddd67">Malloc</a></div><div class="ttdeci">void * Malloc(size_t size)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dcd/malloc_8c_source.html#l00014">malloc.c:14</a></div></div>
+<div class="ttc" id="amalloc_8c_html_a9aba735939042a2a4a6cd57e9df45dad"><div class="ttname"><a href="../../d6/dcd/malloc_8c.html#a9aba735939042a2a4a6cd57e9df45dad">Calloc</a></div><div class="ttdeci">void * Calloc(size_t length, size_t size, void *element)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dcd/malloc_8c_source.html#l00022">malloc.c:22</a></div></div>
 <div class="ttc" id="amalloc_8h_html"><div class="ttname"><a href="../../d0/d4c/malloc_8h.html">malloc.h</a></div><div class="ttdoc">Wrapper to the allocation functions.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

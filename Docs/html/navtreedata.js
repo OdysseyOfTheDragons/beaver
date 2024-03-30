@@ -25,15 +25,8 @@
 var NAVTREE =
 [
   [ "beaver", "index.html", [
-    [ "beaver-lang", "index.html", [
-      [ "Origin", "index.html#autotoc_md1", null ],
-      [ "The project", "index.html#autotoc_md2", null ],
-      [ "Inspirations", "index.html#autotoc_md3", null ],
-      [ "Steps", "index.html#autotoc_md4", [
-        [ "Step 0", "index.html#autotoc_md5", null ],
-        [ "Step 1", "index.html#autotoc_md6", null ]
-      ] ]
-    ] ],
+    [ "Origin", "index.html#autotoc_md1", null ],
+    [ "The project", "index.html#autotoc_md2", null ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
