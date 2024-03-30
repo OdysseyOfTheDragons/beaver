@@ -1,6 +1,13 @@
 # beaver
 My own mathematical OOP programming language.
 
+![GitHub License](https://img.shields.io/github/license/OdysseyOfTheDragons/beaver)
+![GitHub Repo stars](https://img.shields.io/github/stars/OdysseyOfTheDragons/beaver)
+![GitHub repo size](https://img.shields.io/github/repo-size/OdysseyOfTheDragons/beaver)
+![GitHub Sponsors](https://img.shields.io/github/sponsors/OdysseyOfTheDragons)
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A4V5RHQ)
+
 ## Origin
 
 It's been years I dream about building my own programming language. But years passed, and nothing happened... until last year. For homework in my school, we had to do a simple `C` program to manipulate polynomials.

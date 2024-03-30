@@ -12,7 +12,7 @@
  * 
  * @param size the size of memory to allocate
  * @returns a pointer to the memory
- * @throws no more memory available
+ * @throws Panic no more memory available
  */
 void* Malloc(size_t size);
 

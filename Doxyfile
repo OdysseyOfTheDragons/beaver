@@ -8,13 +8,7 @@ DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "beaver"
 PROJECT_NUMBER         = "0.0.1a"
 PROJECT_BRIEF          = "My own mathematical OOP programming language."
-
-# With the PROJECT_LOGO tag one can specify a logo or an icon that is included
-# in the documentation. The maximum height of the logo should not exceed 55
-# pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
-# the logo to the output directory.
-
-PROJECT_LOGO           =
+PROJECT_LOGO           = Assets/icon.docs.png
 OUTPUT_DIRECTORY       = Docs
 CREATE_SUBDIRS         = YES
 CREATE_SUBDIRS_LEVEL   = 8
@@ -236,10 +230,12 @@ IGNORE_PREFIX          =
 GENERATE_HTML          = YES
 HTML_OUTPUT            = html
 HTML_FILE_EXTENSION    = .html
-HTML_HEADER            =
+HTML_HEADER            = Docs/header.html
 HTML_FOOTER            =
 HTML_STYLESHEET        =
-HTML_EXTRA_STYLESHEET  = Docs/doxygen-awesome.css
+HTML_EXTRA_STYLESHEET  = Docs/doxygen-awesome.css \
+						 Docs/doxygen-awesome-sidebar-only.css
+						 Docs/custom.css
 HTML_EXTRA_FILES       =
 HTML_COLORSTYLE_HUE    = 220
 HTML_COLORSTYLE_SAT    = 100
@@ -407,7 +403,7 @@ CALLER_GRAPH           = NO
 GRAPHICAL_HIERARCHY    = YES
 DIRECTORY_GRAPH        = YES
 DIR_GRAPH_MAX_DEPTH    = 1
-DOT_IMAGE_FORMAT       = png
+DOT_IMAGE_FORMAT       = svg
 INTERACTIVE_SVG        = NO
 DOT_PATH               =
 DOTFILE_DIRS           =
@@ -418,7 +414,7 @@ PLANTUML_CFG_FILE      =
 PLANTUML_INCLUDE_PATH  =
 DOT_GRAPH_MAX_NODES    = 50
 MAX_DOT_GRAPH_DEPTH    = 0
-DOT_TRANSPARENT        = NO
+DOT_TRANSPARENT        = YES
 DOT_MULTI_TARGETS      = NO
 GENERATE_LEGEND        = YES
 DOT_CLEANUP            = YES
